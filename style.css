@@ -63,13 +63,46 @@ h1{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 20px;
     margin: 70px 0;
 }
 #search-result img{
-    width: 100%;
-    height:100%;
+  
+    width: 350px;
+    height:350px;
     object-fit: cover;
     border-radius: 5px;
     aspect-ratio: 3/2;
+    position: relative;
+   z-index: -1;
+}
+span{
+    
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transform: translatey(-100%);
+    transition:linear;
+    width: 350px;
+    height: 180px;
+    background-color: grey;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    opacity: .8;
+    color:#fff;
+    font-weight: 500;
+    font-size: 1.1rem;
+    animation: slide  .4s linear;
+}
+@keyframes slide{
+    0%{
+        background-color: grey;
+        height: 10%;
+    }
+   
+    100%{
+        background-color: grey;
+    }
 }

@@ -23,6 +23,8 @@ async function searchImage(){
     const results = data.results;
 
     results.map((result) =>{
+        const description = document.createElement("span")
+        description.innerHTML = result.alt_description;
         const image = document.createElement("img");
         image.src = result.urls.small;
         const imageLink = document.createElement("a");
@@ -30,7 +32,15 @@ async function searchImage(){
         imageLink.targer = "_blank";
 
         imageLink.appendChild(image);
+        imageLink.appendChild(description);
         searchResult.appendChild(imageLink);
+
+        imageLink.addEventListener('mouseover', ()=>{
+            description.style.display= "flex"
+        })
+        imageLink.addEventListener('mouseleave', ()=>{
+            description.style.display= "none"
+        })
 
     })
     moreBtn.style.display = "block";
